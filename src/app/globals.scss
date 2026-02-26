@@ -1,0 +1,55 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  scroll-padding-top: 90px;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+body {
+  // background: #0f1115;
+}
+.container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+button,
+url,
+Image,
+h3,
+h4,
+h5,
+h6 {
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  footer {
+    margin-top: auto;
+  }
+}
