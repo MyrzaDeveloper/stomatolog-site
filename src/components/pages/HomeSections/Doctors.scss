@@ -13,9 +13,7 @@
     font-size: 38px;
     color: #0b2a3a;
 
-    span {
-      color: #2ba7e0;
-    }
+    span { color: #2ba7e0; }
   }
 
   p {
@@ -50,13 +48,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 
-  @media (max-width: 980px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 560px) {
-    grid-template-columns: 1fr;
-  }
+  @media (max-width: 980px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 560px) { grid-template-columns: 1fr; }
 }
 
 .card {
@@ -73,14 +66,17 @@
 }
 
 .card__image {
-  height: 260px;
-  overflow: hidden;
+  padding: 18px 18px 0;   // 🔥 сүрөт четтен жабышпасын
+}
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 10;  // 🔥 баары бирдей пропорцияда
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;       // кесилсе да красиво
+  object-position: center 15%; // default (анан doc.pos менен override болот)
+  display: block;
 }
 
 .card__content {
@@ -117,8 +113,6 @@
     box-shadow: 0 15px 35px rgba(43, 167, 224, 0.3);
     transition: transform 0.2s ease;
 
-    &:hover {
-      transform: translateY(-1px);
-    }
+    &:hover { transform: translateY(-1px); }
   }
 }

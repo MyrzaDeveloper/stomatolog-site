@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import logo from "@/assets/logo.png";
 import "./Header.scss";
 
 const nav = [
-  { href: "#home", label: "Главная" },
+  { href: "#hero", label: "Главная" },
   { href: "#service", label: "Услуги" },
   { href: "#doctors", label: "Врачи" },
   { href: "#reviews", label: "Отзывы" },
@@ -26,24 +26,43 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (hash: string) => (e: React.MouseEvent) => {
+  // ✅ sticky header бийиктигин алып, ошого жараша scroll кылат
+  const scrollToHash = (hash: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    const el = document.querySelector(hash);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const target = document.querySelector(hash) as HTMLElement | null;
+    if (!target) return;
+
+    const header = document.getElementById("header");
+    const headerH = header?.offsetHeight ?? 0;
+
+    const top = target.getBoundingClientRect().top + window.scrollY - headerH - 10;
+
+    window.history.pushState(null, "", hash);
+    window.scrollTo({ top, behavior: "smooth" });
+
     setOpen(false);
   };
 
   const phone = "996555000992";
-  const message = encodeURIComponent(
-    "Здравствуйте! Хочу записаться на прием. Подскажите, пожалуйста, свободное время."
+  const message = useMemo(
+    () =>
+      encodeURIComponent(
+        "Здравствуйте! Хочу записаться на прием. Подскажите, пожалуйста, свободное время."
+      ),
+    []
   );
   const wa = `https://wa.me/${phone}?text=${message}`;
 
   return (
-    <header id="header" className={scrolled ? "isScrolled" : ""} data-aos="fade-down">
+    <header
+      id="header"
+      className={scrolled ? "isScrolled" : ""}
+      data-aos="fade-down"
+    >
       <div className="container">
         <div className="header">
-          <a className="brand" href="#home" onClick={scrollTo("#home")}>
+          <a className="brand" href="#home" onClick={scrollToHash("#home")}>
             <span className="logoWrap">
               <Image src={logo} alt="Dent Clinic" priority />
             </span>
@@ -55,7 +74,12 @@ export default function Header() {
 
           <nav className="nav">
             {nav.map((i) => (
-              <a key={i.href} href={i.href} className="navLink" onClick={scrollTo(i.href)}>
+              <a
+                key={i.href}
+                href={i.href}
+                className="navLink"
+                onClick={scrollToHash(i.href)}
+              >
                 {i.label}
               </a>
             ))}
@@ -90,7 +114,7 @@ export default function Header() {
                 key={i.href}
                 href={i.href}
                 className="mobileLink"
-                onClick={scrollTo(i.href)}
+                onClick={scrollToHash(i.href)}
               >
                 {i.label}
               </a>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
 import LayoutSite from "@/components/layout/LayoutSite";
 import AOSProvider from "./providers/AOSproviders";
+// import icon from ""
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "Современная стоматология: лечение, чистка, отбеливание. Запись в WhatsApp.",
     type: "website",
-    images: ["/og.jpg"], // public/og.jpg
+    images: ["/icon.png"], 
   },
   twitter: {
     card: "summary_large_image",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     images: ["/og.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
     apple: "/apple-touch-icon.png",
   },
 };

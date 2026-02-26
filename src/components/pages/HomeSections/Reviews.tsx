@@ -2,10 +2,30 @@ import React from "react";
 import "./Reviews.scss";
 
 const reviews = [
-  { name: "Айгүл", city: "Бишкек", text: "Абдан таза, врач түшүндүрүп берди. Оорутпай жасашты. Рахмат!", rate: 5 },
-  { name: "Нурбек", city: "Токмок", text: "Пломба жасаттым, сапаттуу болду. Баасы да норм. Сервис күчтүү.", rate: 5 },
-  { name: "Эльмира", city: "Бишкек", text: "Балама детский врач жакшы мамиле кылды. Эми ушул жерге эле келебиз.", rate: 5 },
-  { name: "Руслан", city: "Кант", text: "Чисткадан кийин тиштерим таптаза болуп калды. Кеңештери да жакшы.", rate: 5 },
+  {
+    name: "Айгүл",
+    city: "Бишкек",
+    text: "Очень чистая клиника, врач всё подробно объяснил. Лечение прошло без боли. Спасибо!",
+    rate: 5,
+  },
+  {
+    name: "Нурбек",
+    city: "Токмок",
+    text: "Делал пломбу — всё качественно. Цена адекватная, сервис на хорошем уровне.",
+    rate: 5,
+  },
+  {
+    name: "Эльмира",
+    city: "Бишкек",
+    text: "Детский стоматолог нашёл подход к ребёнку. Теперь будем ходить только сюда.",
+    rate: 5,
+  },
+  {
+    name: "Руслан",
+    city: "Кант",
+    text: "После профессиональной чистки зубы стали идеально чистыми. Врач дал полезные рекомендации.",
+    rate: 5,
+  },
 ];
 
 const Stars = ({ count }: { count: number }) => (
@@ -37,7 +57,12 @@ const Reviews = () => {
 
           <div className="reviews__grid">
             {reviews.map((r, idx) => (
-              <div className="reviewCard" key={idx} data-aos="fade-up" data-aos-delay={idx * 80}>
+              <div
+                className="reviewCard"
+                key={idx}
+                data-aos="fade-up"
+                data-aos-delay={idx * 80}
+              >
                 <div className="reviewCard__head">
                   <div className="avatar">{r.name.slice(0, 1)}</div>
 
@@ -61,8 +86,11 @@ const Reviews = () => {
 
           <div className="reviews__bottom" data-aos="fade-up">
             <div className="callout">
-              <b>Келип көрүңүз</b>
-              <span>Биринчи консультациядан кийин эле баары түшүнүктүү болот.</span>
+              <b>Приходите на приём</b>
+              <span>
+                После первой консультации вы получите чёткий план лечения и
+                ответы на все вопросы.
+              </span>
             </div>
 
             <a className="cta" href="#contact">

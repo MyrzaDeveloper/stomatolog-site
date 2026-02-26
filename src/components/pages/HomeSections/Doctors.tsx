@@ -2,9 +2,27 @@ import React from "react";
 import "./Doctors.scss";
 
 const doctors = [
-  { name: "Айжан Садыкова", spec: "Стоматолог-терапевт", exp: "Опыт 8 лет", img: "/doctor1.jpg" },
-  { name: "Нурсултан Абдыкадыров", spec: "Ортопед / Протезирование", exp: "Опыт 12 лет", img: "/doctor2.jpg" },
-  { name: "Эльвира Жумабекова", spec: "Детский стоматолог", exp: "Опыт 6 лет", img: "/doctor3.jpg" },
+  {
+    name: "Айжан Садыкова",
+    spec: "Стоматолог-терапевт",
+    exp: "Опыт 8 лет",
+    img: "https://docneb.ru/wp-content/uploads/2022/10/image-e1665126935318.png?v=1734675898",
+    pos: "center 15%", // жогору жак көбүрөөк көрүнсүн
+  },
+  {
+    name: "Нурсултан Абдыкадыров",
+    spec: "Ортопед / Протезирование",
+    exp: "Опыт 12 лет",
+    img: "https://s16.stc.all.kpcdn.net/russia/wp-content/uploads/2024/10/stomatologi-hirurgi-v-moskve-palkin.jpg",
+    pos: "center 10%",
+  },
+  {
+    name: "Эльвира Жумабекова",
+    spec: "Детский стоматолог",
+    exp: "Опыт 6 лет",
+    img: "https://stomdom.com/wp-content/uploads/2025/04/marchuk-sofiya-anatolevna_dsc_1830a.jpg",
+    pos: "center 20%",
+  },
 ];
 
 const Doctors = () => {
@@ -26,9 +44,19 @@ const Doctors = () => {
 
           <div className="doctors__grid">
             {doctors.map((doc, index) => (
-              <div className="card" key={index} data-aos="zoom-in" data-aos-delay={index * 90}>
+              <div
+                className="card"
+                key={index}
+                data-aos="zoom-in"
+                data-aos-delay={index * 90}
+              >
                 <div className="card__image">
-                  <img src={doc.img} alt={`${doc.name} — ${doc.spec}`} />
+                  <img
+                    src={doc.img}
+                    alt={`${doc.name} — ${doc.spec}`}
+                    style={{ objectPosition: doc.pos }}
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="card__content">
