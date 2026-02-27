@@ -13,7 +13,6 @@ const Hero = () => {
     <section id="hero">
       <div className="container">
         <div className="hero">
-          {/* LEFT */}
           <div className="hero__left">
             <div className="hero__badge" data-aos="fade-down">
               <span className="dot" />
@@ -55,7 +54,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* RIGHT */}
           <div className="hero__right" data-aos="zoom-in" data-aos-delay="180">
             <div className="heroCard">
               <div className="heroCard__top">
@@ -65,8 +63,8 @@ const Hero = () => {
 
               <div className="heroCard__grid">
                 <div className="info">
-                  <span>Время</span>
-                  <b>16:30</b>
+                  {/* <span>Время</span> */}
+                  <b>Онлайн запись</b>
                 </div>
                 <div className="info">
                   <span>Врач</span>

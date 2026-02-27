@@ -66,16 +66,16 @@
 }
 
 .card__image {
-  padding: 18px 18px 0;   // 🔥 сүрөт четтен жабышпасын
+  padding: 18px 18px 0;   
 }
 
 .card__image img {
   width: 100%;
-  aspect-ratio: 16 / 10;  // 🔥 баары бирдей пропорцияда
+  aspect-ratio: 16 / 10;  
   height: auto;
   border-radius: 18px;
-  object-fit: cover;       // кесилсе да красиво
-  object-position: center 15%; // default (анан doc.pos менен override болот)
+  object-fit: cover;       
+  object-position: center 15%; 
   display: block;
 }
 

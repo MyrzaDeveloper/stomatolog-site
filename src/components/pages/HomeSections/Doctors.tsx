@@ -6,8 +6,8 @@ const doctors = [
     name: "Айжан Садыкова",
     spec: "Стоматолог-терапевт",
     exp: "Опыт 8 лет",
-    img: "https://docneb.ru/wp-content/uploads/2022/10/image-e1665126935318.png?v=1734675898",
-    pos: "center 15%", // жогору жак көбүрөөк көрүнсүн
+    img: "https://st3.depositphotos.com/1809585/15607/i/450/depositphotos_156070862-stock-photo-female-doctor-posing-in-a.jpg",
+    pos: "center 15%",
   },
   {
     name: "Нурсултан Абдыкадыров",

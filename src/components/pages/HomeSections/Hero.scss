@@ -1,10 +1,9 @@
 #hero {
-  padding: 84px 0 70px;
+  padding: 98px 0 70px;
   background: #f5faff;
   position: relative;
   overflow: hidden;
 
-  /* soft premium background */
   &::before,
   &::after {
     content: "";
