@@ -7,7 +7,7 @@ import logo from "@/assets/logo.png";
 import "./Header.scss";
 
 const nav = [
-  { href: "#home", label: "Главная" },
+  { href: "#hero", label: "Главная" },
   { href: "#service", label: "Услуги" },
   { href: "#doctors", label: "Врачи" },
   { href: "#reviews", label: "Отзывы" },
@@ -29,28 +29,29 @@ export default function Header() {
   const scrollToHash = (hash: string) => (e: React.MouseEvent) => {
     e.preventDefault();
 
-    const target = document.querySelector(hash) as HTMLElement | null;
-    if (!target) return;
-
-    const header = document.getElementById("header");
-    const headerH = header?.offsetHeight ?? 0;
-
-    const top =
-      target.getBoundingClientRect().top + window.scrollY - headerH - 10;
-
-    window.history.pushState(null, "", hash);
-    window.scrollTo({ top, behavior: "smooth" });
-
     setOpen(false);
+
+    // меню жабылсын (сенде 0.25s transition)
+    setTimeout(() => {
+      const id = hash.replace("#", "");
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      // эң ишенимдүү мобилде
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // URL жаңылансын
+      window.history.pushState(null, "", hash);
+    }, 260);
   };
 
   const phone = "996555000992";
   const message = useMemo(
     () =>
       encodeURIComponent(
-        "Здравствуйте! Хочу записаться на прием. Подскажите, пожалуйста, свободное время."
+        "Здравствуйте! Хочу записаться на прием. Подскажите, пожалуйста, свободное время.",
       ),
-    []
+    [],
   );
   const wa = `https://wa.me/${phone}?text=${message}`;
 

@@ -1,6 +1,12 @@
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 98px; /* header бийиктиги */
+}
+section[id] {
+  scroll-margin-top: 98px;
 }
 
 body {
@@ -13,7 +19,11 @@ body {
   box-sizing: border-box;
 }
 
-img, svg, video, canvas, iframe {
+img,
+svg,
+video,
+canvas,
+iframe {
   max-width: 100%;
   height: auto;
 }
@@ -31,8 +41,12 @@ img, svg, video, canvas, iframe {
   padding: 0 16px; /* 20 -> 16 (мобилге жакшы) */
 }
 
-li { list-style: none; }
-a { text-decoration: none; }
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 
 .app {
   display: flex;
@@ -41,5 +55,11 @@ a { text-decoration: none; }
 
   footer {
     margin-top: auto;
+  }
+}
+@media (max-width: 520px) {
+  html, section[id] {
+    scroll-padding-top: 76px;
+    scroll-margin-top: 76px;
   }
 }
